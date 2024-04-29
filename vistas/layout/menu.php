@@ -103,8 +103,54 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Niveles
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/niveles/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de niveles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/niveles/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nuevo nivel</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-bars-progress"></i>
+              <p>
+                Grados
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/grados/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de grados</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/grados/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nuevo grado</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-bookmark"></i>
@@ -165,14 +211,12 @@
               <li class="nav-item">
                 <a href="<?php echo APP_URL?>/vistas/configuraciones/" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de configuraciones</p>
+                  <p>Configurar</p>
                 </a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>

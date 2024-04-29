@@ -4,6 +4,7 @@ include("layout/menu.php");
 
 include("../controllers/roles/listado_roles.php");
 include("../controllers/usuarios/listado_usuarios.php");
+include("../controllers/niveles/listado_niveles.php");
 ?>
 
 
@@ -71,13 +72,20 @@ include("../controllers/usuarios/listado_usuarios.php");
 
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
-              <p>User Registrations</p>
+              <?php
+                $contador_niveles = 0;
+                foreach ($niveles as $nivele)
+                {
+                  $contador_niveles++;
+                }
+              ?>
+              <h3><?php echo $contador_niveles;?></h3>
+              <p>Usuarios registrados</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fas fa-list"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo APP_URL;?>/vistas/niveles/" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 

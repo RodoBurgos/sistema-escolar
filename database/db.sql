@@ -64,3 +64,33 @@ CREATE TABLE gestiones(
 )ENGINE=InnoDB;
 
 INSERT INTO gestiones(nombre,usuario_id,estado,fyh_creacion) VALUES('GESTIÓN - 2024',1,'ACTIVO','2024-04-22 17:00:10');
+
+CREATE TABLE niveles(
+    id_niveles        INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nivel             varchar(100) NOT NULL,
+    turno             varchar(100) NOT NULL,
+    gestion_id        INT(11) NOT NULL,
+    usuario_id        INT(11) NOT NULL,
+
+    estado            varchar(10),
+    fyh_creacion      DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
+    FOREIGN KEY (gestion_id) REFERENCES gestiones(id_gestiones) on delete no action on update cascade,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuarios) on delete no action on update cascade
+)ENGINE=InnoDB;
+
+INSERT INTO niveles(nivel,turno,gestion_id,usuario_id,estado,fyh_creacion) VALUES('INICIAL','MAÑANA',1,1,'ACTIVO','2024-04-24 14:40:10');
+
+CREATE TABLE grados(
+    id_grados        INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nivel_id          INT(11) NOT NULL,
+    curso             varchar(100) NOT NULL,
+    paralelo          varchar(100) NOT NULL,
+
+    estado            varchar(10),
+    fyh_creacion      DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
+    FOREIGN KEY (nivel_id) REFERENCES niveles(id_niveles) on delete no action on update cascade
+)ENGINE=InnoDB;
+
+INSERT INTO grados(nivel_id,curso,paralelo,estado,fyh_creacion) VALUES(1,'PRIMERO','A','ACTIVO','2024-04-29 15:40:10');
