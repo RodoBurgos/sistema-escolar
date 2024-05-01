@@ -35,7 +35,6 @@
                     <div class="card-body">
                         <form action="<?php echo APP_URL;?>/controllers/niveles/editar_niveles.php" method="POST">
                             <input type="text" name="id_niveles" value="<?php echo $id_niveles;?>" hidden>
-                            <input type="text" name="usuario_id" value="<?php echo $id_sesion_usuario;?>" hidden>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
@@ -44,12 +43,12 @@
                                     <?php
                                         foreach ($gestiones as $gestion)
                                         {
-                                            if($gestion["estado"] == "ACTIVO")
+                                            if($gestion["estado"] == 1)
                                             {  
                                     ?>
                                                 <option value="<?php echo $gestion['id_gestiones'];?>"
                                                 <?php 
-                                                    if($gestion == $gestion['nombre'])
+                                                    if($gestion_nivel == $gestion['nombre'])
                                                     {
                                                 ?> 
                                                         selected="selected"
@@ -73,7 +72,7 @@
                                     <select name="nivel" id="lista1" class="form-control">
                                         <option value="INICIAL"
                                             <?php 
-                                                if($nivel == "INICIAL")
+                                                if($nivel_nivel == "INICIAL")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -85,7 +84,7 @@
                                         </option>
                                         <option value="PRIMARIO"
                                             <?php 
-                                                if($nivel == "PRIMARIO")
+                                                if($nivel_nivel == "PRIMARIO")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -97,7 +96,7 @@
                                         </option>
                                         <option value="SECUNDARIO"
                                             <?php 
-                                                if($nivel == "SECUNDARIO")
+                                                if($nivel_nivel == "SECUNDARIO")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -119,7 +118,7 @@
                                     <select name="turno" id="lista2" class="form-control">
                                         <option value="MAÑANA"
                                             <?php 
-                                                if($turno == "MAÑANA")
+                                                if($turno_nivel == "MAÑANA")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -131,7 +130,7 @@
                                         </option>
                                         <option value="TARDE"
                                             <?php 
-                                                if($turno == "TARDE")
+                                                if($turno_nivel == "TARDE")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -143,7 +142,7 @@
                                         </option>
                                         <option value="NOCHE"
                                         <?php 
-                                                if($turno == "NOCHE")
+                                                if($turno_nivel == "NOCHE")
                                                 {
                                             ?>
                                                     selected="selected"

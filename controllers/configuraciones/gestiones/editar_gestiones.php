@@ -3,7 +3,6 @@
 
     $id_gestiones = $_POST["id_gestiones"];
     $nombre = $_POST["nombre"];
-    $usuario_id = $_POST["usuario_id"];
     $estado_form = $_POST["estado"];
 
     $nombre = mb_strtoupper($nombre);//pone todo el nombre en mayúscula
@@ -36,12 +35,11 @@
         }
         else
         {
-            $sentencia = $pdo->prepare("UPDATE gestiones SET nombre=:nombre, usuario_id=:usuario_id, estado=:estado_form, 
+            $sentencia = $pdo->prepare("UPDATE gestiones SET nombre=:nombre, estado=:estado_form, 
             fyh_actualizacion=:fecha WHERE id_gestiones = :id_gestiones");
 
             $sentencia->bindParam(':id_gestiones',$id_gestiones);
             $sentencia->bindParam(':nombre',$nombre);
-            $sentencia->bindParam(':usuario_id',$usuario_id);
             $sentencia->bindParam(':estado_form',$estado_form);
             $sentencia->bindParam(':fecha',$fecha);
 

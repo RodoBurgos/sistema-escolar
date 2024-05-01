@@ -5,7 +5,7 @@
   {
     //echo "Paso x el login";
     $usuario_sesion = $_SESSION['usuario'];
-    $query_sesion = $pdo->prepare("SELECT * FROM usuarios WHERE usuario='$usuario_sesion' AND estado='Activo';");
+    $query_sesion = $pdo->prepare("SELECT * FROM usuarios WHERE usuario='$usuario_sesion' AND estado='1';");
     $query_sesion->execute();
 
     $datos_sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +13,7 @@
     foreach ($datos_sesion_usuarios as $datos_sesion_usuario)
     {
       $id_sesion_usuario = $datos_sesion_usuario['id_usuarios'];
-      $nombre_sesion_usuario = $datos_sesion_usuario['nombre'].' '.$datos_sesion_usuario['apellido'];
+      $email_sesion_usuario = $datos_sesion_usuario['email'];
     }
   }
   else
@@ -96,7 +96,7 @@
           <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $nombre_sesion_usuario;?></a>
+          <a href="#" class="d-block"><?php echo $email_sesion_usuario;?></a>
         </div>
       </div>
 
@@ -153,6 +153,54 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Materias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/materias/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de materias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/materias/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nueva materia</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-person"></i>
+              <p>
+                Personas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/personas/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de personas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/personas/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nueva persona</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-bookmark"></i>
               <p>
                 Roles
@@ -163,7 +211,7 @@
               <li class="nav-item">
                 <a href="<?php echo APP_URL?>/vistas/roles/" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de Roles</p>
+                  <p>Listado de roles</p>
                 </a>
               </li>
               <li class="nav-item">

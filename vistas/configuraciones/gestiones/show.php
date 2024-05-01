@@ -45,16 +45,16 @@
                                 <div class="form-group">
                                     <label for="">Estado:</label>
                                     <?php
-                                      if($estado_gestiones == "ACTIVO")
+                                      if($estado_gestiones == 1)
                                       {
                                     ?>
-                                        <p><span class="badge badge-success"><?php echo $estado_gestiones;?></span></p>
+                                        <p><span class="badge badge-success">ACTIVO</span></p>
                                     <?php    
                                       }
                                       else
                                       {
                                     ?>
-                                        <p><span class="badge badge-danger"><?php echo $estado_gestiones;?></span></p>
+                                        <p><span class="badge badge-danger">INACTIVO</span></p>
                                     <?php    
                                       }
                                     ?>

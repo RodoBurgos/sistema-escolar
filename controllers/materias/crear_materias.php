@@ -9,15 +9,15 @@
     if($nombre == "")
     {
         session_start();
-        $_SESSION['mensaje'] = "Por favor ingrese un nombre de rol.";
+        $_SESSION['mensaje'] = "Por favor ingrese un nombre de una materia.";
         $_SESSION['icono'] = "error";
 
-        header("location:".APP_URL."/vistas/roles/create.php");
+        header("location:".APP_URL."/vistas/materias/create.php");
     }
     else
     {
-        //Consulta si el rol ya existe en la BD
-        $consulta = $pdo->prepare("SELECT nombre FROM roles WHERE nombre = :nombre");
+        //Consulta si la materia ya existe en la BD
+        $consulta = $pdo->prepare("SELECT nombre FROM materias WHERE nombre = :nombre");
         $consulta->bindParam(':nombre', $nombre);
         $consulta->execute();
 
@@ -26,14 +26,14 @@
         if($roles)
         {
             session_start();
-            $_SESSION['mensaje'] = "Este rol ya existe en la base de datos.";
+            $_SESSION['mensaje'] = "Esta materia ya existe en la base de datos.";
             $_SESSION['icono'] = "error";
 
-            header("location:".APP_URL."/vistas/roles/create.php");
+            header("location:".APP_URL."/vistas/materias/create.php");
         }
         else
         {
-            $sentencia = $pdo->prepare("INSERT INTO roles(nombre,estado,fyh_creacion) 
+            $sentencia = $pdo->prepare("INSERT INTO materias(nombre,estado,fyh_creacion) 
             VALUES(:nombre,:estado,:fecha)");
 
             $sentencia->bindParam(':nombre',$nombre);
@@ -43,18 +43,18 @@
             if($sentencia->execute())
             {
                 session_start();
-                $_SESSION['mensaje'] = "El rol se registro correctamente.";
+                $_SESSION['mensaje'] = "La materia se registro correctamente.";
                 $_SESSION['icono'] = "success";
 
-                header("location:".APP_URL."/vistas/roles/");
+                header("location:".APP_URL."/vistas/materias/");
             }
             else
             {
                 session_start();
-                $_SESSION['mensaje'] = "No se pudo registrar el rol, comuníquese con el Administrador.";
+                $_SESSION['mensaje'] = "No se pudo registrar la materia, comuníquese con el Administrador.";
                 $_SESSION['icono'] = "error";
 
-                header("location:".APP_URL."/vistas/roles/create.php");
+                header("location:".APP_URL."/vistas/materias/create.php");
             }
         }
     }

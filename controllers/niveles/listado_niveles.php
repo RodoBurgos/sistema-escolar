@@ -1,7 +1,7 @@
 <?php
     //include("../../app/config.php");
 
-    $sql = "SELECT n.*, g.nombre as gestion FROM niveles as n INNER JOIN gestiones as g ON n.gestion_id=g.id_gestiones WHERE n.estado = 'ACTIVO'";
+    $sql = "SELECT n.*, g.nombre as gestion FROM niveles as n INNER JOIN gestiones as g ON n.gestion_id=g.id_gestiones WHERE n.estado = '1'";
     $query_niveles = $pdo->prepare($sql);
     $query_niveles->execute();
 

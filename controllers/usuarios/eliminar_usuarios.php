@@ -2,7 +2,7 @@
     include('../../app/config.php');
 
     $id_usuario = $_POST['id_usuario'];
-    $inactivo = "INACTIVO";
+    $inactivo = 0;
 
     $sentencia = $pdo->prepare("UPDATE usuarios SET estado=:inactivo, fyh_actualizacion=:fecha WHERE id_usuarios=:id_usuario");
 
@@ -13,7 +13,7 @@
     if($sentencia->execute())
     {
         session_start();
-        $_SESSION['mensaje'] = "El usuario se elimino de la manera correcta";
+        $_SESSION['mensaje'] = "El usuario se elimino de la manera correcta.";
         $_SESSION['icono'] = "success";
 
         header("location:".APP_URL."/vistas/usuarios/");

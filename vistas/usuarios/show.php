@@ -71,7 +71,21 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Estado:</label>
-                                    <p><span class="badge badge-success"><?php echo $estado_usuario;?></span></p>
+                                    <?php
+                                        if($estado_usuario)
+                                        {
+                                    ?>
+                                            <p><span class="badge badge-success">ACTIVO</span></p>
+                                    <?php
+                                        }
+                                        else
+                                        {
+                                    ?>
+                                            <p><span class="badge badge-danger">INACTIVO</span></p>
+                                    <?php
+                                        }
+                                    ?>
+                                    
                                 </div>
                             </div>                         
                         </div>

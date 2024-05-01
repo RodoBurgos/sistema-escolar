@@ -64,12 +64,12 @@
                                             <td class="text-center"><?php echo $grado["curso"].' - '.$grado["paralelo"];?></td>
                                             <td class="text-center"><?php echo $grado["fyh_creacion"];?></td>
                                             <td class="text-center">
-                                                <!-- <form action="<?php echo APP_URL;?>/controllers/niveles/eliminar_niveles.php" method="POST" class="formulario-eliminar"> -->
+                                                <form action="<?php echo APP_URL;?>/controllers/grados/eliminar_grados.php" method="POST" class="formulario-eliminar">
                                                   <a href="show.php?id=<?php echo $id_grados;?>" class="btn btn-outline-info btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
                                                   <a href="edit.php?id=<?php echo $id_grados;?>" class="btn btn-outline-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
-                                                  <!-- <input type="text" value="<?php //echo $id_grados;?>" name="id_grados" hidden>
+                                                  <input type="text" value="<?php echo $id_grados;?>" name="id_grados" hidden>
                                                   <button type="submit" class="btn btn-outline-danger btn-sm" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                                </form> -->
+                                                </form>
                                             </td>
                                         </tr>
                                 <?php        

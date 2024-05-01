@@ -12,7 +12,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Datos del Rol: <b><?php echo $nombre_rol;?></b></h1>
+            <h1 class="m-0">Datos del rol: <b><?php echo $nombre_rol;?></b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -44,7 +44,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Estado:</label>
-                                    <p><span class="badge badge-success"><?php echo $estado_rol;?></span></p>
+                                    <?php
+                                      if($estado_rol == 1)
+                                      {
+                                    ?>
+                                        <p><span class="badge badge-success">ACTIVO</span></p>
+                                    <?php    
+                                      }
+                                      else
+                                      {
+                                    ?>
+                                        <p><span class="badge badge-success">INACTIVO</span></p>
+                                    <?php
+                                      }
+                                    ?>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 <?php
-    include("../../../app/config.php");
-    include("../../layout/menu.php");
+    include("../../app/config.php");
+    include("../layout/menu.php");
 ?>
 
 
@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Creación de una nueva Gestión Escolar</h1>
+            <h1 class="m-0">Creación de una nueva materia</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo APP_URL?>/vistas/">Inicio</a></li>
-              <li class="breadcrumb-item active">Creación de una nueva Gestión Escolar</li>
+              <li class="breadcrumb-item active">Creación de una nueva materia</li>
             </ol>
           </div>
         </div>
@@ -30,35 +30,23 @@
             <div class="col-md-6">
                 <div class="card card-outline card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Formulario gestión escolar</h3>
+                        <h3 class="card-title">Formulario materia</h3>
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo APP_URL;?>/controllers/configuraciones/gestiones/crear_gestiones.php" method="POST">
+                        <form action="<?php echo APP_URL;?>/controllers/materias/crear_materias.php" method="POST">
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
-                                <label for="">Nombre de la gestión:</label>
+                                <label for="">Materia:</label>
                                 <input type="text" class="form-control" name="nombre">
                               </div>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="">Estado:</label>
-                                    <select name="estado" class="form-control">
-                                        <option value="1">ACTIVO</option>
-                                        <option value="0">INACTIVO</option>
-                                    </select>
-                                </div>
                             </div>
                           </div>
                           <hr>
                           <div class="row">
                             <div class="col-md-6">
                               <button type="submit" class="btn btn-primary">Registrar</button>
-                              <a href="<?php echo APP_URL;?>/vistas/configuraciones/gestiones/" class="btn btn-secondary">Cancelar</a>
+                              <a href="<?php echo APP_URL;?>/vistas/materias/" class="btn btn-secondary">Cancelar</a>
                             </div>
                           </div>
                         </form>
@@ -71,6 +59,6 @@
   </div>
 
 <?php 
-  include("../../layout/footer.php");
-  include("../../../layout/mensajes.php");
+  include("../layout/footer.php");
+  include("../../layout/mensajes.php");
 ?>

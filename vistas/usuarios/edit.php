@@ -1,6 +1,7 @@
 <?php
     include("../../app/config.php");
     include("../layout/menu.php");
+    include("../../controllers/personas/listado_personas.php");
     include("../../controllers/roles/listado_roles.php");
     include("../../controllers/usuarios/ver_usuarios.php");
 ?>
@@ -39,22 +40,43 @@
                             <input type="text" name="id_usuario" value="<?php echo $id_usuario;?>" hidden>
                           <div class="row">
                             <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="">DNI</label>
-                                <input type="number" name="dni" value="<?php echo $dni_usuario;?>" class="form-control">
-                              </div>
+                                <div class="form-group">
+                                  <label for="">Seleccione una persona</label>
+                                  <a href="<?php echo APP_URL;?>/vistas/personas/create.php" class="btn btn-primary btn-sm" style="margin-left: 183px;" title="Crear nueva persona"><i class="fas fa-plus"></i></a>
+                                  <select name="persona_id" class="form-control select2" style="width: 100%;">
+                                      <?php
+                                          foreach ($personas as $persona)
+                                          {
+                                      ?>
+                                              <option value="<?php echo $persona['id_personas'];?>"
+                                                <?php 
+                                                    if($dni_usuario == $persona['dni'] && $nombre_usuario == $persona['nombre'] && $apellido_usuario == $persona["apellido"])
+                                                    {
+                                                ?> 
+                                                        selected="selected"
+                                                <?php } ?>
+                                              >
+                                                <?php echo $persona['dni'].' - '.$persona['nombre'].' '.$persona['apellido'];?>
+                                              </option>
+                                      <?php
+                                          }
+                                      ?>
+                                  </select>
+                                </div>
                             </div>
+
                             <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="">Nombre</label>
-                                <input type="text" name="nombre" value="<?php echo $nombre_usuario;?>" class="form-control">
-                              </div>
+                                <div class="form-group">
+                                    <label for="">Usuario</label>
+                                    <input type="text" name="usuario" value="<?php echo $usuario_usuario;?>" class="form-control">
+                                </div>
                             </div>
+
                             <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="">Apellido</label>
-                                <input type="text" name="apellido" value="<?php echo $apellido_usuario;?>" class="form-control">
-                              </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="email" name="email" value="<?php echo $email_usuario;?>" class="form-control">
+                                </div>
                             </div>
                           </div>
 
@@ -86,18 +108,7 @@
                                   </select>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Usuario</label>
-                                    <input type="text" name="usuario" value="<?php echo $usuario_usuario;?>" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" name="email" value="<?php echo $email_usuario;?>" class="form-control">
-                                </div>
-                            </div>
+                            
                           </div>
                           <hr>
                           <div class="row">

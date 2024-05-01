@@ -43,12 +43,12 @@
                                     <?php
                                         foreach ($niveles as $nivele)
                                         {
-                                            if($nivele["estado"] == "ACTIVO")
+                                            if($nivele["estado"] == 1)
                                             {  
                                     ?>
                                                 <option value="<?php echo $nivele['id_niveles'];?>"
                                                 <?php 
-                                                    if($nivel == $nivele["nivel"] && $turno == $nivele["turno"])
+                                                    if($nivel_grados == $nivele["nivel"] && $turno_grados == $nivele["turno"])
                                                     {
                                                 ?> 
                                                         selected="selected"
@@ -69,7 +69,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Curso:</label>
-                                    <input type="text" name="curso" value="<?php echo $curso;?>" class="form-control">
+                                    <input type="text" name="curso" value="<?php echo $curso_grados;?>" class="form-control">
                                 </div>
                             </div>
                           </div>
@@ -81,7 +81,7 @@
                                     <select name="paralelo" class="form-control">
                                         <option value="A"
                                             <?php 
-                                                if($paralelo == "A")
+                                                if($paralelo_grados == "A")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -93,7 +93,7 @@
                                         </option>
                                         <option value="B"
                                             <?php 
-                                                if($paralelo == "B")
+                                                if($paralelo_grados == "B")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -105,7 +105,7 @@
                                         </option>
                                         <option value="C"
                                             <?php 
-                                                if($paralelo == "C")
+                                                if($paralelo_grados == "C")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -117,7 +117,7 @@
                                         </option>
                                         <option value="D"
                                             <?php 
-                                                if($paralelo == "D")
+                                                if($paralelo_grados == "D")
                                                 {
                                             ?>
                                                     selected="selected"
@@ -129,7 +129,7 @@
                                         </option>
                                         <option value="E"
                                             <?php 
-                                                if($paralelo == "E")
+                                                if($paralelo_grados == "E")
                                                 {
                                             ?>
                                                     selected="selected"

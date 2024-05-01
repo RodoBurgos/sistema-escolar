@@ -42,7 +42,6 @@
                                 <input type="text" name="nombre" value="<?php echo $nombre_gestiones;?>" class="form-control">
 
                                 <input type="text" name="id_gestiones" value="<?php echo $id_gestiones;?>" hidden>
-                                <input type="text" name="usuario_id" value="<?php echo $id_sesion_usuario;?>" hidden>
                               </div>
                             </div>
                           </div>
@@ -53,17 +52,17 @@
                                     <label for="">Estado:</label>
                                     <select name="estado" class="form-control">
                                         <?php
-                                            if($estado_gestiones == "ACTIVO")
+                                            if($estado_gestiones == 1)
                                             {?>
-                                                <option value="ACTIVO" selected="selected">ACTIVO</option>
-                                                <option value="INACTIVO">INACTIVO</option>
+                                                <option value="1" selected="selected">ACTIVO</option>
+                                                <option value="0">INACTIVO</option>
                                         <?php
                                             }
                                             else
                                             {
                                         ?>
-                                                <option value="ACTIVO">ACTIVO</option>
-                                                <option value="INACTIVO" selected="selected">INACTIVO</option>
+                                                <option value="1">ACTIVO</option>
+                                                <option value="0" selected="selected">INACTIVO</option>
                                         <?php
                                             } 
                                         ?>

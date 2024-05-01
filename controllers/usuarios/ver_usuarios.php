@@ -1,7 +1,10 @@
 <?php
     $id_usuario = $_GET['id'];
 
-    $query = $pdo->prepare("SELECT u.*,r.nombre as rol FROM usuarios as u INNER JOIN roles as r ON u.rol_id=r.id_roles WHERE u.id_usuarios='$id_usuario'");
+    $query = $pdo->prepare("SELECT u.*,r.nombre as rol,p.dni,p.nombre,p.apellido FROM usuarios as u 
+    INNER JOIN roles as r ON u.rol_id=r.id_roles 
+    INNER JOIN personas as p ON u.persona_id=p.id_personas 
+    WHERE u.id_usuarios='$id_usuario'");
     $query->bindParam(':id_usuario', $id_usuario);
     $query->execute();
 

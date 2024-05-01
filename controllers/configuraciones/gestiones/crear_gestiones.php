@@ -2,7 +2,6 @@
     include("../../../app/config.php");
 
     $nombre = $_POST["nombre"];
-    $usuario_id = $_POST["usuario_id"];
     $estado_form = $_POST["estado"];
 
     $nombre = mb_strtoupper($nombre);//pone todo el nombre en mayúscula
@@ -34,11 +33,10 @@
         }
         else
         {
-            $sentencia = $pdo->prepare("INSERT INTO gestiones(nombre,usuario_id,estado,fyh_creacion) 
-            VALUES(:nombre,:usuario_id,:estado,:fecha)");
+            $sentencia = $pdo->prepare("INSERT INTO gestiones(nombre,estado,fyh_creacion) 
+            VALUES(:nombre,:estado,:fecha)");
 
             $sentencia->bindParam(':nombre',$nombre);
-            $sentencia->bindParam(':usuario_id',$usuario_id);
             $sentencia->bindParam(':estado',$estado_form);
             $sentencia->bindParam(':fecha',$fecha);
 

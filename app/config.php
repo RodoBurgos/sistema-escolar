@@ -26,7 +26,7 @@
     $dia_actual = date("d");
     $mes_actual = date("m");
     $ano_actual = date("Y");
-    $estado = "ACTIVO";
+    $estado = 1;
 
     //Conexión a la BD de otra forma
     /*$server="localhost";

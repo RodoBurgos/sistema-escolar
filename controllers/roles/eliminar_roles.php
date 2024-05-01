@@ -2,7 +2,7 @@
     include('../../app/config.php');
 
     $id_rol = $_POST['id_rol'];
-    $inactivo = "INACTIVO";
+    $inactivo = 0;
 
     $sentencia = $pdo->prepare("UPDATE roles SET estado=:inactivo, fyh_actualizacion=:fecha WHERE id_roles=:id_rol");
 
@@ -13,7 +13,7 @@
     if($sentencia->execute())
     {
         session_start();
-        $_SESSION['mensaje'] = "El rol se elimino de la manera correcta";
+        $_SESSION['mensaje'] = "El rol se elimino de la manera correcta.";
         $_SESSION['icono'] = "success";
 
         header("location:".APP_URL."/vistas/roles/");

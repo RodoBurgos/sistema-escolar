@@ -61,17 +61,17 @@
                                             <td><?php echo $gestione["nombre"];?></td>
                                             
                                             <?php
-                                                if($gestione["estado"] == "ACTIVO")
+                                                if($gestione["estado"] == 1)
                                                 {
                                             ?>
-                                                    <td class="text-center"><span class="badge badge-success"><?php echo $gestione["estado"];?></span></td>
+                                                    <td class="text-center"><span class="badge badge-success">ACTIVO</span></td>
                                                     
                                             <?php
                                                 }
                                                 else
                                                 {
                                             ?>
-                                                    <td class="text-center"><span class="badge badge-danger"><?php echo $gestione["estado"];?></span></td>
+                                                    <td class="text-center"><span class="badge badge-danger">INACTIVO</span></td>
                                             <?php
                                                 }
                                             ?>

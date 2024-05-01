@@ -41,7 +41,7 @@
                                     <?php
                                         foreach ($niveles as $nivele)
                                         {
-                                            if($nivele["estado"] == "ACTIVO")
+                                            if($nivele["estado"] == 1)
                                             {  
                                     ?>
                                                 <option value="<?php echo $nivele['id_niveles'];?>"><?php echo $nivele['nivel'].' - '.$nivele["turno"];?></option>

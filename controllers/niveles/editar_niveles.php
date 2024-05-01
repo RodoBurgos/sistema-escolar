@@ -2,7 +2,6 @@
     include('../../app/config.php');
 
     $id = $_POST["id_niveles"];
-    $usuario_id = $_POST["usuario_id"];
     $gestion_id = $_POST["gestion_id"];
     $nivel = $_POST["nivel"];
     $turno = $_POST["turno"];
@@ -36,14 +35,13 @@
         }
         else
         {
-            $sentencia = $pdo->prepare("UPDATE niveles SET nivel=:nivel, turno=:turno, gestion_id=:gestion_id, usuario_id=:usuario_id,
+            $sentencia = $pdo->prepare("UPDATE niveles SET gestion_id=:gestion_id, nivel=:nivel, turno=:turno,
             fyh_actualizacion=:fecha WHERE id_niveles=:id");
 
             $sentencia->bindParam(':id',$id);
-            $sentencia->bindParam(':nivel',$nivel);
-            $sentencia->bindParam(':turno',$turno);
             $sentencia->bindParam(':gestion_id',$gestion_id);
-            $sentencia->bindParam(':usuario_id',$usuario_id);
+            $sentencia->bindParam(':nivel',$nivel);
+            $sentencia->bindParam(':turno',$turno);         
             $sentencia->bindParam(':fecha',$fecha);
 
             if($sentencia->execute())

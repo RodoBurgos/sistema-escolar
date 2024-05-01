@@ -5,7 +5,7 @@
     $usuario_form = $_POST["usuario"];
     $contrasena = $_POST["contrasena"];
 
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario_form' AND estado = 'Activo'";
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario_form' AND estado = '1'";
     $query = $pdo->prepare($sql);
     $query->execute();
 

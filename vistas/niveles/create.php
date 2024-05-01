@@ -33,7 +33,6 @@
                     </div>
                     <div class="card-body">
                         <form action="<?php echo APP_URL;?>/controllers/niveles/crear_niveles.php" method="POST">
-                            <input type="text" name="usuario_id" value="<?php echo $id_sesion_usuario;?>" hidden>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
@@ -42,7 +41,7 @@
                                     <?php
                                         foreach ($gestiones as $gestion)
                                         {
-                                            if($gestion["estado"] == "ACTIVO")
+                                            if($gestion["estado"] == 1)
                                             {  
                                     ?>
                                                 <option value="<?php echo $gestion['id_gestiones'];?>"><?php echo $gestion['nombre'];?></option>
@@ -60,10 +59,10 @@
                                 <div class="form-group">
                                     <label for="">Nivel:</label>
                                     <select name="nivel" id="lista1" class="form-control">
-                                        <option value="1">INICIAL</option>
-                                        <option value="2">PRIMARIO</option>
-                                        <option value="3">SECUNDARIO</option>
-                                        <option value="4">TERCIARIO</option>
+                                        <option value="INICIAL">INICIAL</option>
+                                        <option value="PRIMARIO">PRIMARIO</option>
+                                        <option value="SECUNDARIO">SECUNDARIO</option>
+                                        <option value="TERCIARIO">TERCIARIO</option>
                                     </select>
                                 </div>
                             </div>

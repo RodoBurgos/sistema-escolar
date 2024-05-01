@@ -1,16 +1,14 @@
 <?php
     include('../../app/config.php');
 
-    $dni = $_POST["dni"];
-    $nombre = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
+    $persona_id = $_POST["persona_id"];
     $rol_id = $_POST["rol_id"];
     $usuario = $_POST["usuario"];
     $email = $_POST["email"];
     $contrasena = $_POST["contrasena"];
     $contrasena2 = $_POST["contrasena2"];
 
-    if ($dni == "" || $nombre == "" || $apellido == "" || $rol_id == "" || $usuario == "" || $email == "" || $contrasena == "")
+    if ($persona_id == "" || $rol_id == "" || $usuario == "" || $email == "" || $contrasena == "")
     {
         session_start();
         $_SESSION['mensaje'] = "Por favor llene todos los campos.";
@@ -42,23 +40,21 @@
                 //Encripta la contraseña
                 $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
                 
-                $sentencia = $pdo->prepare("INSERT INTO usuarios(dni,nombre,apellido,email,usuario,contrasena,rol_id,estado,fyh_creacion) 
-                VALUES(:dni,:nombre,:apellido,:email,:usuario,:contrasena,:rol_id,:estado,:fecha)");
+                $sentencia = $pdo->prepare("INSERT INTO usuarios(rol_id,persona_id,email,usuario,contrasena,estado,fyh_creacion) 
+                VALUES(:rol_id,:persona_id,:email,:usuario,:contrasena,:estado,:fecha)");
 
-                $sentencia->bindParam(':dni',$dni);
-                $sentencia->bindParam(':nombre',$nombre);
-                $sentencia->bindParam(':apellido',$apellido);
+                $sentencia->bindParam(':rol_id',$rol_id);
+                $sentencia->bindParam(':persona_id',$persona_id);
                 $sentencia->bindParam(':email',$email);
                 $sentencia->bindParam(':usuario',$usuario);
                 $sentencia->bindParam(':contrasena',$contrasena);
-                $sentencia->bindParam(':rol_id',$rol_id);
                 $sentencia->bindParam(':estado',$estado);
                 $sentencia->bindParam(':fecha',$fecha);
 
                 if($sentencia->execute())
                 {
                     session_start();
-                    $_SESSION['mensaje'] = "El usuario se registro correctamente";
+                    $_SESSION['mensaje'] = "El usuario se registro correctamente.";
                     $_SESSION['icono'] = "success";
 
                     header("location:".APP_URL."/vistas/usuarios/");

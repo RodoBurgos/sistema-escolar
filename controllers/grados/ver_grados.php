@@ -11,11 +11,11 @@
     foreach ($grados as $datos_grados)
     {
         //$id_grados = $datos_grados['id_grados'];
-        $nivel = $datos_grados['nivel'];
-        $turno = $datos_grados['turno'];
-        $curso = $datos_grados['curso'];
-        $paralelo = $datos_grados['paralelo'];
-        $estado_rol = $datos_grados['estado'];
-        $fyh_creacion_rol = $datos_grados['fyh_creacion'];
-        $fyh_actualizacion_rol = $datos_grados['fyh_actualizacion'];
+        $nivel_grados = $datos_grados['nivel'];
+        $turno_grados = $datos_grados['turno'];
+        $curso_grados = $datos_grados['curso'];
+        $paralelo_grados = $datos_grados['paralelo'];
+        $estado_grados = $datos_grados['estado'];
+        $fyh_creacion_grados = $datos_grados['fyh_creacion'];
+        $fyh_actualizacion_grados = $datos_grados['fyh_actualizacion'];
     }

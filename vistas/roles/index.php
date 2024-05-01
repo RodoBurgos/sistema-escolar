@@ -62,17 +62,17 @@
                                             <td><?php echo $rol["nombre"];?></td>
                                             
                                             <?php
-                                                if($rol["estado"] == "ACTIVO")
+                                                if($rol["estado"] == 1)
                                                 {
                                             ?>
-                                                    <td class="text-center"><span class="badge badge-success"><?php echo $rol["estado"];?></span></td>
+                                                    <td class="text-center"><span class="badge badge-success">ACTIVO</span></td>
                                                     
                                             <?php
                                                 }
                                                 else
                                                 {
                                             ?>
-                                                    <td class="text-center"><span class="badge badge-danger"><?php echo $rol["estado"];?></span></td>
+                                                    <td class="text-center"><span class="badge badge-danger">INACTIVO</span></td>
                                             <?php
                                                 }
                                             ?>

@@ -10,7 +10,7 @@ include("../../controllers/grados/ver_grados.php");
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Datos del grado: <b><?php echo $curso.' - '.$paralelo;?></b></h1>
+                    <h1 class="m-0">Datos del grado: <b><?php echo $curso_grados.' - '.$paralelo_grados;?></b></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,35 +33,62 @@ include("../../controllers/grados/ver_grados.php");
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nivel escolar:</label>
-                                        <p><?php echo $nivel.' - '.$turno;?></p>
+                                        <p><?php echo $nivel_grados.' - '.$turno_grados;?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Fecha de creación:</label>
+                                        <p><?php echo $fyh_creacion_grados;?></p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Curso:</label>
-                                        <p><?php echo $curso;?></p>
+                                        <p><?php echo $curso_grados;?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Fecha de actualización:</label>
+                                        <p><?php echo $fyh_actualizacion_grados;?></p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Paralelo:</label>
-                                        <p><?php echo $paralelo;?></p>
+                                        <p><?php echo $paralelo_grados;?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Fecha de creación:</label>
+                                        <?php
+                                            if($estado_grados == 1)
+                                            {
+                                                echo '<p><span class="badge badge-success">ACTIVO</span></p>';
+                                            }
+                                            else
+                                            {
+                                                echo '<p><span class="badge badge-danger">INACTIVO</span></p>';
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="<?php echo APP_URL; ?>/vistas/grados/" class="btn btn-secondary">Cancelar</a>
+                                    <a href="<?php echo APP_URL; ?>/vistas/grados/" class="btn btn-secondary">Volver</a>
                                 </div>
                             </div>
                         </div>

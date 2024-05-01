@@ -1,7 +1,7 @@
 <?php
     include("../../app/config.php");
     include("../layout/menu.php");
-    include("../../controllers/niveles/listado_niveles.php");
+    include("../../controllers/materias/listado_materias.php");
 ?>
 
 
@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Listado de niveles</h1>
+            <h1 class="m-0">Listado de materias</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo APP_URL?>/vistas/">Inicio</a></li>
-              <li class="breadcrumb-item active">Listado de niveles</li>
+              <li class="breadcrumb-item active">Listado de materias</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,19 +32,18 @@
             <div class="col-md-12">
                 <div class="card card-outline card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Niveles registrados</h3>
+                        <h3 class="card-title">Materias registradas</h3>
                         <div class="card-tools">
-                          <a href="create.php" class="btn btn-primary" title="Nuevo nivel"><i class="fas fa-plus"></i> Crear nuevo nivel</a>
+                          <a href="create.php" class="btn btn-primary" title="Nueva materia"><i class="fas fa-plus"></i> Crear nuevo rol</a>
                         </div>
                     </div>
                     <div class="card-body">
-                        <table id="tabla-niveles" class="table table-bordered table-striped table-sm">
+                        <table id="tabla-materias" class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr class="text-center">
                                     <th>Nº</th>
-                                    <th>Gestión escolar</th>
-                                    <th>Nivel</th>
-                                    <th>Turno</th>
+                                    <th>Materia</th>
+                                    <th>Estado</th>
                                     <th>Fecha Creación</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -52,22 +51,37 @@
                             <tbody>
                                 <?php
                                     $contador = 0;
-                                    foreach ($niveles as $nivel)
+                                    foreach ($materias as $materia)
                                     {
-                                      $id_niveles = $nivel['id_niveles'];
+                                      $id_materias = $materia['id_materias'];
                                       $contador++;
                                 ?>
                                         <tr>
                                             <td><?php echo $contador;?></td>
-                                            <td><?php echo $nivel["gestion"];?></td>
-                                            <td><?php echo $nivel["nivel"];?></td>
-                                            <td><?php echo $nivel["turno"];?></td>
-                                            <td class="text-center"><?php echo $nivel["fyh_creacion"];?></td>
+                                            <td class="text-center"><?php echo $materia["nombre"];?></td>
+                                            
+                                            <?php
+                                                if($materia["estado"] == 1)
+                                                {
+                                            ?>
+                                                    <td class="text-center"><span class="badge badge-success">ACTIVO</span></td>
+                                                    
+                                            <?php
+                                                }
+                                                else
+                                                {
+                                            ?>
+                                                    <td class="text-center"><span class="badge badge-danger">INACTIVO</span></td>
+                                            <?php
+                                                }
+                                            ?>
+                                            
+                                            <td class="text-center"><?php echo $materia["fyh_creacion"];?></td>
                                             <td class="text-center">
-                                                <form action="<?php echo APP_URL;?>/controllers/niveles/eliminar_niveles.php" method="POST" class="formulario-eliminar">
-                                                  <a href="show.php?id=<?php echo $id_niveles;?>" class="btn btn-outline-info btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
-                                                  <a href="edit.php?id=<?php echo $id_niveles;?>" class="btn btn-outline-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
-                                                  <input type="text" value="<?php echo $id_niveles;?>" name="id_niveles" hidden>
+                                                <form action="<?php echo APP_URL;?>/controllers/materias/eliminar_materias.php" method="POST" class="formulario-eliminar">
+                                                  <a href="show.php?id=<?php echo $id_materias;?>" class="btn btn-outline-info btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
+                                                  <a href="edit.php?id=<?php echo $id_materias;?>" class="btn btn-outline-success btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
+                                                  <input type="text" value="<?php echo $id_materias;?>" name="id_materias" hidden>
                                                   <button type="submit" class="btn btn-outline-danger btn-sm" title="Eliminar"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>
@@ -93,8 +107,8 @@
 <script>
   $(document).ready(function()
   {
-    //Datatables niveles
-    $('#tabla-niveles').DataTable(
+    //Datatables materias
+    $('#tabla-materias').DataTable(
     {
       "pageLength": 10,
       "responsive": true,
@@ -138,15 +152,15 @@
                 text: '<button class="btn btn-secondary" title="Imprimir"><i class="fas fa-print"></i></button>',
             }
         ]
-    }).buttons().container().appendTo('#tabla-niveles_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#tabla-materias_wrapper .col-md-6:eq(0)');
 
-    //Eliminar rol
+    //Eliminar materias
     $('.formulario-eliminar').submit(function(e)
     {
       e.preventDefault();
 
       Swal.fire({
-          title: '¿Estás seguro de eliminar éste nivel?',
+          title: '¿Estás seguro de eliminar esta materia?',
           text: "¡No podrás revertir esto!",
           icon: 'warning',
           showCancelButton: true,
