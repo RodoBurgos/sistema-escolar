@@ -60,9 +60,14 @@ CREATE TABLE administrativos(
     FOREIGN KEY (persona_id) REFERENCES personas(id_personas) on delete no action on update cascade
 )ENGINE=InnoDB;
 
+INSERT INTO administrativos(persona_id,estado,fyh_creacion)
+VALUES(1,'1','2024-04-30 12:08:00');
+
 CREATE TABLE docentes(
     id_docentes          INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     persona_id           INT(11) NOT NULL,
+    especialidad         varchar(100) NULL,
+    antiguedad           varchar(10) NULL,
 
     estado               varchar(10),
     fyh_creacion         DATETIME NULL,
@@ -73,21 +78,51 @@ CREATE TABLE docentes(
 CREATE TABLE estudiantes(
     id_estudiantes       INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     persona_id           INT(11) NOT NULL,
+    grado_id             INT(11) NOT NULL,
+    legajo               varchar(50) NOT NULL,
 
     estado               varchar(10),
     fyh_creacion         DATETIME NULL,
     fyh_actualizacion    DATETIME NULL,
-    FOREIGN KEY (persona_id) REFERENCES personas(id_personas) on delete no action on update cascade
+    FOREIGN KEY (persona_id) REFERENCES personas(id_personas) on delete no action on update cascade,
+    FOREIGN KEY (grado_id) REFERENCES grados(id_grados) on delete no action on update cascade
 )ENGINE=InnoDB;
 
-CREATE TABLE padresFamilias(
-    id_padresFamilias    INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    persona_id           INT(11) NOT NULL,
+CREATE TABLE parentescos(
+    id_parentescos       INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre               varchar(50) NOT NULL,
+    
+    estado               varchar(10),
+    fyh_creacion         DATETIME NULL,
+    fyh_actualizacion    DATETIME NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE tutores(
+    id_tutores           INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    parentesco_id        INT(11) NOT NULL,
+    dni                  varchar(15) NOT NULL,
+    nombre               varchar(50) NOT NULL,
+    apellido             varchar(50) NOT NULL,
+    
+    estado               varchar(10),
+    fyh_creacion         DATETIME NULL,
+    fyh_actualizacion    DATETIME NULL,
+    FOREIGN KEY (parentesco_id) REFERENCES parentescos(id_parentescos) on delete no action on update cascade
+)ENGINE=InnoDB;
+
+CREATE TABLE estudxtutores(
+    id_estudxtutores     INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tutor_id             INT(11) NOT NULL,
+    estudiante_id        INT(11) NOT NULL,
+    direccion            varchar(100) NOT NULL,
+    celular              varchar(15) NULL,
+    ocupacion            varchar(100) NULL,
 
     estado               varchar(10),
     fyh_creacion         DATETIME NULL,
     fyh_actualizacion    DATETIME NULL,
-    FOREIGN KEY (persona_id) REFERENCES personas(id_personas) on delete no action on update cascade
+    FOREIGN KEY (tutor_id) REFERENCES tutores(id_tutores) on delete no action on update cascade,
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id_estudiantes) on delete no action on update cascade
 )ENGINE=InnoDB;
 
 CREATE TABLE instituciones(

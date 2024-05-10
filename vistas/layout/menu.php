@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -105,7 +107,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas"><i class="bi bi-bookshelf"></i></i>
               <p>
                 Niveles
                 <i class="right fas fa-angle-left"></i>
@@ -129,7 +131,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-bars-progress"></i>
+              <i class="nav-icon fas"><i class="bi bi-bar-chart-steps"></i></i>
               <p>
                 Grados
                 <i class="right fas fa-angle-left"></i>
@@ -153,7 +155,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="nav-icon fas"><i class="bi bi-book-half"></i></i>
               <p>
                 Materias
                 <i class="right fas fa-angle-left"></i>
@@ -177,31 +179,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-person"></i>
-              <p>
-                Personas
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo APP_URL?>/vistas/personas/" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de personas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo APP_URL?>/vistas/personas/create.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crea nueva persona</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-bookmark"></i>
+              <i class="nav-icon fas"><i class="bi bi-bookmarks"></i></i>
               <p>
                 Roles
                 <i class="right fas fa-angle-left"></i>
@@ -225,7 +203,7 @@
           
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas"><i class="bi bi-people-fill"></i></i>
               <p>
                 Usuarios
                 <i class="right fas fa-angle-left"></i>
@@ -249,7 +227,103 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-gear"></i>
+              <i class="nav-icon fas"><i class="bi bi-person-lines-fill"></i></i>
+              <p>
+                Administrativos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/administrativos/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de administrativos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/administrativos/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nuevo administrativos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-person-video3"></i></i>
+              <p>
+                Docentes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/docentes/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de docentes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/docentes/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crea nuevo docente</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-person-video"></i></i>
+              <p>
+                Estudiantes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/estudiantes/inscripciones/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inscripción</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/estudiantes/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de estudiantes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-person-bounding-box"></i></i>
+              <p>
+                Parentesco
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/parentescos/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de parentesco</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo APP_URL?>/vistas/parentescos/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear nuevo parentesco</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-gear"></i></i>
               <p>
                 Configuraciones
                 <i class="right fas fa-angle-left"></i>
